@@ -1,0 +1,355 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8561A5DE52F6C39FD78D5168 /* libPods-sourcerer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B80E0981C10D04A8A26D16F2 /* libPods-sourcerer.a */; };
+		C43BEEBB217B1D3600F79D71 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43BEEBA217B1D3600F79D71 /* main.swift */; };
+		C456CB45218011BE00EE3876 /* RankingsRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456CB43218011BE00EE3876 /* RankingsRenderer.swift */; };
+		C456CB46218011BE00EE3876 /* StatsRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456CB44218011BE00EE3876 /* StatsRenderer.swift */; };
+		C4D1518E2185A49C0035F927 /* OwnershipCyclesRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D1518D2185A49C0035F927 /* OwnershipCyclesRenderer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C43BEEAD217B1D0D00F79D71 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6DBB441C75BE1561E27405EF /* Pods-sourcerer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sourcerer.release.xcconfig"; path = "Target Support Files/Pods-sourcerer/Pods-sourcerer.release.xcconfig"; sourceTree = "<group>"; };
+		AC571409DC266D739DB32E20 /* Pods-sourcerer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sourcerer.debug.xcconfig"; path = "Target Support Files/Pods-sourcerer/Pods-sourcerer.debug.xcconfig"; sourceTree = "<group>"; };
+		B80E0981C10D04A8A26D16F2 /* libPods-sourcerer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sourcerer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C43BEEAF217B1D0D00F79D71 /* sourcerer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sourcerer; sourceTree = BUILT_PRODUCTS_DIR; };
+		C43BEEBA217B1D3600F79D71 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C456CB43218011BE00EE3876 /* RankingsRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsRenderer.swift; sourceTree = "<group>"; };
+		C456CB44218011BE00EE3876 /* StatsRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsRenderer.swift; sourceTree = "<group>"; };
+		C4D1518D2185A49C0035F927 /* OwnershipCyclesRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnershipCyclesRenderer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C43BEEAC217B1D0D00F79D71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8561A5DE52F6C39FD78D5168 /* libPods-sourcerer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45852BDBA7E5BAABA74E170E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B80E0981C10D04A8A26D16F2 /* libPods-sourcerer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47B30229C893C2EB4233E4A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC571409DC266D739DB32E20 /* Pods-sourcerer.debug.xcconfig */,
+				6DBB441C75BE1561E27405EF /* Pods-sourcerer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C43AFF1C218D237D000E9BAE /* renderers */ = {
+			isa = PBXGroup;
+			children = (
+				C456CB43218011BE00EE3876 /* RankingsRenderer.swift */,
+				C456CB44218011BE00EE3876 /* StatsRenderer.swift */,
+				C4D1518D2185A49C0035F927 /* OwnershipCyclesRenderer.swift */,
+			);
+			path = renderers;
+			sourceTree = "<group>";
+		};
+		C43BEEA6217B1D0D00F79D71 = {
+			isa = PBXGroup;
+			children = (
+				C43BEEB9217B1D3600F79D71 /* sourcerer */,
+				C43BEEB0217B1D0D00F79D71 /* Products */,
+				47B30229C893C2EB4233E4A4 /* Pods */,
+				45852BDBA7E5BAABA74E170E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C43BEEB0217B1D0D00F79D71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C43BEEAF217B1D0D00F79D71 /* sourcerer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C43BEEB9217B1D3600F79D71 /* sourcerer */ = {
+			isa = PBXGroup;
+			children = (
+				C43BEEBA217B1D3600F79D71 /* main.swift */,
+				C43AFF1C218D237D000E9BAE /* renderers */,
+			);
+			name = sourcerer;
+			path = Sources/sourcerer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C43BEEAE217B1D0D00F79D71 /* sourcerer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C43BEEB6217B1D0D00F79D71 /* Build configuration list for PBXNativeTarget "sourcerer" */;
+			buildPhases = (
+				7D4735EC51405BF7998D72C3 /* [CP] Check Pods Manifest.lock */,
+				C43BEEAB217B1D0D00F79D71 /* Sources */,
+				C43BEEAC217B1D0D00F79D71 /* Frameworks */,
+				C43BEEAD217B1D0D00F79D71 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sourcerer;
+			productName = sourcerer;
+			productReference = C43BEEAF217B1D0D00F79D71 /* sourcerer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C43BEEA7217B1D0D00F79D71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Hector Marques";
+				TargetAttributes = {
+					C43BEEAE217B1D0D00F79D71 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = C43BEEAA217B1D0D00F79D71 /* Build configuration list for PBXProject "sourcerer" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C43BEEA6217B1D0D00F79D71;
+			productRefGroup = C43BEEB0217B1D0D00F79D71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C43BEEAE217B1D0D00F79D71 /* sourcerer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D4735EC51405BF7998D72C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-sourcerer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C43BEEAB217B1D0D00F79D71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4D1518E2185A49C0035F927 /* OwnershipCyclesRenderer.swift in Sources */,
+				C456CB46218011BE00EE3876 /* StatsRenderer.swift in Sources */,
+				C456CB45218011BE00EE3876 /* RankingsRenderer.swift in Sources */,
+				C43BEEBB217B1D3600F79D71 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C43BEEB4217B1D0D00F79D71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C43BEEB5217B1D0D00F79D71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		C43BEEB7217B1D0D00F79D71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC571409DC266D739DB32E20 /* Pods-sourcerer.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		C43BEEB8217B1D0D00F79D71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DBB441C75BE1561E27405EF /* Pods-sourcerer.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C43BEEAA217B1D0D00F79D71 /* Build configuration list for PBXProject "sourcerer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C43BEEB4217B1D0D00F79D71 /* Debug */,
+				C43BEEB5217B1D0D00F79D71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C43BEEB6217B1D0D00F79D71 /* Build configuration list for PBXNativeTarget "sourcerer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C43BEEB7217B1D0D00F79D71 /* Debug */,
+				C43BEEB8217B1D0D00F79D71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C43BEEA7217B1D0D00F79D71 /* Project object */;
+}

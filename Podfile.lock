@@ -1,0 +1,62 @@
+PODS:
+  - ElementaryCycles (0.1.0):
+    - ElementaryCyclesSearch
+  - ElementaryCyclesSearch (0.1.0)
+  - Idioms (0.2.0)
+  - ShellInterface (0.3.0)
+  - SourcererArchiver (0.1.0):
+    - Idioms
+    - ShellInterface
+  - SourcererRenderer (0.1.0):
+    - SourcererTypes
+  - SourcererTypes (0.1.0):
+    - SourceryRuntime
+  - SourcererUnarchiver (0.1.0):
+    - SourceryRuntime
+  - Sourcery (0.15.0)
+  - SourceryRuntime (0.0.1)
+
+DEPENDENCIES:
+  - ElementaryCycles
+  - SourcererArchiver (from `.`)
+  - SourcererRenderer (from `.`)
+  - SourcererTypes (from `.`)
+  - SourcererUnarchiver (from `.`)
+  - Sourcery
+  - SourceryRuntime (from `.`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ElementaryCycles
+    - ElementaryCyclesSearch
+    - Idioms
+    - ShellInterface
+    - Sourcery
+
+EXTERNAL SOURCES:
+  SourcererArchiver:
+    :path: "."
+  SourcererRenderer:
+    :path: "."
+  SourcererTypes:
+    :path: "."
+  SourcererUnarchiver:
+    :path: "."
+  SourceryRuntime:
+    :path: "."
+
+SPEC CHECKSUMS:
+  ElementaryCycles: c04f932542da1b4038367c6fffabcbb0d2732c5c
+  ElementaryCyclesSearch: 2a89a2c5d2783fb56bbf6b2bd33cecb3b97789b4
+  Idioms: 49ed93123f5cf9ecbbfce698b54467b176723adb
+  ShellInterface: 84aad41857229d6730bb868f2e2d2764bdf1a09a
+  SourcererArchiver: 9e3b79f05788e17839c71ab167a90a47333eadc6
+  SourcererRenderer: 350537752c821b997859ad140b4fbd14c26e7cca
+  SourcererTypes: 38529d9ea5b38feed127cf54e886f9781625bd44
+  SourcererUnarchiver: 8744f203de3b7d2fd34e567a245f4750dda1866f
+  Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
+  SourceryRuntime: 01fa94e01140d8e1a635c636f06e1196493de03e
+
+PODFILE CHECKSUM: cc067448023e87457a98ab299331cfbb16b989d2
+
+COCOAPODS: 1.6.0.beta.2
