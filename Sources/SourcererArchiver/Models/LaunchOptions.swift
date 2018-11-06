@@ -16,4 +16,6 @@ public struct LaunchOptions {
     public var forceParse = [String]()
     public var args = [String]()
     public var ejsPath: String?
+
+    public init() {}
 }
