@@ -5,6 +5,11 @@ public struct ArchiveSourceryTypes
 {
     public typealias Func = (LaunchOptions) throws -> Void
 
+    public enum Error: Swift.Error
+    {
+        case archiveFailed (result: TaskResult, underlyingError: TaskFailure)
+    }
+
     private let shell:  ExecuteCommand.Func
     private let mapper: MapLaunchOptionsToArgumentsArray.Func
 
@@ -22,15 +27,17 @@ public struct ArchiveSourceryTypes
         let arguments = mapper(launchOptions)
         let result = shell(launchOptions.sourceryPath, arguments, nil, true)
         guard let terminationStatus = result.terminationStatus else {
-            throw TaskFailure.stillRunning(domain: #function, code: #line)
+            let underlyingError = TaskFailure.stillRunning(domain: #function, code: #line)
+            throw Error.archiveFailed(result: result, underlyingError: underlyingError)
         }
         guard terminationStatus == 0 else {
-            throw TaskFailure.nonzeroTerminationStatus(
+            let underlyingError = TaskFailure.nonzeroTerminationStatus(
                 domain: #function,
                 code: #line,
                 terminationStatus: terminationStatus,
                 uncaughtSignal: result.terminatedDueUncaughtSignal
             )
+            throw Error.archiveFailed(result: result, underlyingError: underlyingError)
         }
     }
 }
