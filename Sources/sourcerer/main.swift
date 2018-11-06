@@ -50,7 +50,9 @@ guard launchOptions != nil || CommandLine.arguments.count >= 2 else {
     exit(1)
 }
 
-launchOptions = try readLaunchOptions(ignoreUnknownLaunchOptions)
+if launchOptions == nil {
+    launchOptions = try readLaunchOptions(ignoreUnknownLaunchOptions)
+}
 
 // -- Archive and unarchive Sourcery's Types
 
