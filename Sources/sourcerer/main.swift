@@ -24,16 +24,20 @@ var launchOptions: LaunchOptions! = nil
 // If you don't want to use command line arguments, you can create and customize LaunchOptions by code:
 //launchOptions = LaunchOptions()
 //launchOptions.sourceryPath = "sourcery"
-//launchOptions.sources.append("\(expandPath("~/Documents/path_to_sources"))")
-//launchOptions.output = "/tmp"
+//launchOptions.sources.append("\(expandPath("~/path/to/sources/"))")
+//launchOptions.excludeSources.append("\(expandPath("~/path/to/sources/Pods/"))")
+//launchOptions.excludeSources.append("\(expandPath("~/path/to/sources/.git/"))")
+//launchOptions.output = "/tmp/"
 
 guard launchOptions != nil || CommandLine.arguments.count >= 2 else {
     // If you are running from Xcode you can still pass command line arguments.
     // Go to: Product > Scheme > Manage Schemes > sourcerer > Run > Arguments > Arguments Passed On Launch
     // Add at least --sourcery-path and --sources:
     // [x] --sourcery-path $PODS_ROOT/Sourcery/bin/sourcery
-    // [x] --sources ~/path/to/sources
-    // [ ] --output /tmp
+    // [x] --sources ~/path/to/sources/
+    // [ ] --exclude-sources ~/path/to/sources/Pods/
+    // [ ] --exclude-sources ~/path/to/sources/.git/
+    // [ ] --output /tmp/
     let usage =
     """
     Usage:

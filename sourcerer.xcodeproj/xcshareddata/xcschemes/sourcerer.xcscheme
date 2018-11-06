@@ -67,11 +67,19 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--sources ~/path/to/sources"
+            argument = "--sources ~/path/to/sources/"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--output /tmp"
+            argument = "--exclude-sources ~/path/to/sources/Pods/"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--exclude-sources ~/path/to/sources/.git/"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--output /tmp/"
             isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
