@@ -71,7 +71,15 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "--output ~/Documents/"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "--exclude-sources ~/path/to/sources/Pods/"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--exclude-sources ~/path/to/sources/Carthage/"
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
@@ -79,7 +87,11 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--output /tmp/"
+            argument = "--exclude-sources ~/path/to/sources/build/"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--verbose"
             isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>

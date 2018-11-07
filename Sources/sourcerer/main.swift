@@ -23,11 +23,13 @@ var launchOptions: LaunchOptions! = nil
 
 // If you don't want to use command line arguments, you can create and customize LaunchOptions by code:
 //launchOptions = LaunchOptions()
-//launchOptions.sourceryPath = "sourcery"
-//launchOptions.sources.append("\(expandPath("~/path/to/sources/"))")
-//launchOptions.excludeSources.append("\(expandPath("~/path/to/sources/Pods/"))")
-//launchOptions.excludeSources.append("\(expandPath("~/path/to/sources/.git/"))")
-//launchOptions.output = "/tmp/"
+//launchOptions.sourceryPath = "/path/to/sourcery"
+//launchOptions.sources.append(expandPath("~/path/to/sources/"))
+//launchOptions.excludeSources.append(expandPath("~/path/to/sources/Pods/"))
+//launchOptions.excludeSources.append(expandPath("~/path/to/sources/Carthage/"))
+//launchOptions.excludeSources.append(expandPath("~/path/to/sources/.git/"))
+//launchOptions.excludeSources.append(expandPath("~/path/to/sources/build/"))
+//launchOptions.output = expandPath("~/Documents/")
 
 guard launchOptions != nil || CommandLine.arguments.count >= 2 else {
     // If you are running from Xcode you can still pass command line arguments.
@@ -35,9 +37,11 @@ guard launchOptions != nil || CommandLine.arguments.count >= 2 else {
     // Add at least --sourcery-path and --sources:
     // [x] --sourcery-path $PODS_ROOT/Sourcery/bin/sourcery
     // [x] --sources ~/path/to/sources/
+    // [ ] --output ~/Documents/
     // [ ] --exclude-sources ~/path/to/sources/Pods/
+    // [ ] --exclude-sources ~/path/to/sources/Carthage/
     // [ ] --exclude-sources ~/path/to/sources/.git/
-    // [ ] --output /tmp/
+    // [ ] --exclude-sources ~/path/to/sources/build/
     let usage =
     """
     Usage:
