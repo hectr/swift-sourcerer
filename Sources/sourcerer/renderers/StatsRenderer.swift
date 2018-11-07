@@ -87,7 +87,9 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
         var instabilities = [Type: Double]()
         for (type, outgoing) in knownDependencies {
             guard let incoming = incomingDependencies[type] else { continue }
-            let instability = Double(outgoing.count)/Double(outgoing.count/incoming.count)
+            let totalCoupling = outgoing.count + incoming.count
+            guard totalCoupling > 0 else { continue }
+            let instability = Double(outgoing.count)/Double(totalCoupling)
             instabilities[type] = instability
         }
         var instableDependencies = [TypesReport.TypeCounter]()
