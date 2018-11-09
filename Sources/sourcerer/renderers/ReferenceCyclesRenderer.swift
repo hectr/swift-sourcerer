@@ -5,7 +5,7 @@ import SourcererRenderer
 import ElementaryCycles
 import Idioms
 
-final class OwnershipCyclesRenderer: AbstractRenderer<GraphViz> {
+final class ReferenceCyclesRenderer: AbstractRenderer<GraphViz> {
     public init(types: Types) {
         super.init(types: types, writer: GraphViz())
     }

@@ -76,14 +76,14 @@ print("Rendering reports...")
 
 let stats = StatsRenderer(types: types)
 let rankings = RankingsRenderer(types: types)
-let ownership = OwnershipCyclesRenderer(types: types)
+let references = ReferenceCyclesRenderer(types: types)
 
 if let outputPath = launchOptions.output {
     // write to a file
     let url = URL(fileURLWithPath: outputPath)
     try stats.write(url: url)
     try rankings.write(url: url)
-    try ownership.write(url: url)
+    try references.write(url: url)
 } else {
     // write to the console
     var output = String()
@@ -91,7 +91,7 @@ if let outputPath = launchOptions.output {
     stats.write(to: &output)
     output.append("\n\n=== \(rankings.filename) ===\n")
     rankings.write(to: &output)
-    output.append("\n\n=== \(ownership.filename) ===\n")
-    ownership.write(to: &output)
+    output.append("\n\n=== \(references.filename) ===\n")
+    references.write(to: &output)
     print(output)
 }
