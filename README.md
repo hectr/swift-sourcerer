@@ -23,6 +23,17 @@ $ pod install
 $ open sourcerer.xcworkspace
 ```
 
+**Note:** after `pod install` you may see the following message:
+
+> [!] The version of CocoaPods used to generate the lockfile (1.6.0.beta.2) is higher than the version of the current executable (1.5.3). Incompatibility issues may arise.
+
+In that case, you need to install [CocoaPods 1.6.0.beta.2](http://blog.cocoapods.org/CocoaPods-1.6.0-beta/) and run `pod install` again:
+
+```
+$ gem install cocoapods --pre
+$ pod install
+```
+
 ## Usage
 
 Steps to get started using Sourcerer in your own project:
