@@ -91,7 +91,7 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "--verbose"
+            argument = "--verbose false"
             isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
