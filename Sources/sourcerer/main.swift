@@ -77,6 +77,7 @@ print("Rendering reports...")
 let stats = StatsRenderer(types: types)
 let rankings = RankingsRenderer(types: types)
 let references = ReferenceCyclesRenderer(types: types)
+let untested = UntestedRenderer(types: types)
 
 if let outputPath = launchOptions.output {
     // write to a file
@@ -84,6 +85,7 @@ if let outputPath = launchOptions.output {
     try stats.write(url: url)
     try rankings.write(url: url)
     try references.write(url: url)
+    try untested.write(url: url)
 } else {
     // write to the console
     var output = String()
@@ -93,5 +95,7 @@ if let outputPath = launchOptions.output {
     rankings.write(to: &output)
     output.append("\n\n=== \(references.filename) ===\n")
     references.write(to: &output)
+    output.append("\n\n=== \(untested.filename) ===\n")
+    untested.write(to: &output)
     print(output)
 }

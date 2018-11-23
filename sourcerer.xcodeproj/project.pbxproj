@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8561A5DE52F6C39FD78D5168 /* libPods-sourcerer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B80E0981C10D04A8A26D16F2 /* libPods-sourcerer.a */; };
+		C4331C6B21A87AE400900BDE /* UntestedRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4331C6A21A87AE400900BDE /* UntestedRenderer.swift */; };
 		C43BEEBB217B1D3600F79D71 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43BEEBA217B1D3600F79D71 /* main.swift */; };
 		C456CB45218011BE00EE3876 /* RankingsRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456CB43218011BE00EE3876 /* RankingsRenderer.swift */; };
 		C456CB46218011BE00EE3876 /* StatsRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C456CB44218011BE00EE3876 /* StatsRenderer.swift */; };
@@ -30,6 +31,7 @@
 		6DBB441C75BE1561E27405EF /* Pods-sourcerer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sourcerer.release.xcconfig"; path = "Target Support Files/Pods-sourcerer/Pods-sourcerer.release.xcconfig"; sourceTree = "<group>"; };
 		AC571409DC266D739DB32E20 /* Pods-sourcerer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sourcerer.debug.xcconfig"; path = "Target Support Files/Pods-sourcerer/Pods-sourcerer.debug.xcconfig"; sourceTree = "<group>"; };
 		B80E0981C10D04A8A26D16F2 /* libPods-sourcerer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sourcerer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4331C6A21A87AE400900BDE /* UntestedRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UntestedRenderer.swift; sourceTree = "<group>"; };
 		C43BEEAF217B1D0D00F79D71 /* sourcerer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sourcerer; sourceTree = BUILT_PRODUCTS_DIR; };
 		C43BEEBA217B1D3600F79D71 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C456CB43218011BE00EE3876 /* RankingsRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsRenderer.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				C456CB43218011BE00EE3876 /* RankingsRenderer.swift */,
 				C456CB44218011BE00EE3876 /* StatsRenderer.swift */,
+				C4331C6A21A87AE400900BDE /* UntestedRenderer.swift */,
 				C4D1518D2185A49C0035F927 /* ReferenceCyclesRenderer.swift */,
 			);
 			path = renderers;
@@ -187,6 +190,7 @@
 				C456CB46218011BE00EE3876 /* StatsRenderer.swift in Sources */,
 				C456CB45218011BE00EE3876 /* RankingsRenderer.swift in Sources */,
 				C43BEEBB217B1D3600F79D71 /* main.swift in Sources */,
+				C4331C6B21A87AE400900BDE /* UntestedRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
