@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = 'SourcererTypes'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.summary     = 'Pure-Swift meta-programming (Types extensions)'
 
   s.description = <<-DESC
