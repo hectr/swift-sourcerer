@@ -1,0 +1,21 @@
+digraph GRAPH_0 {
+
+  // Generated with https://github.com/hectr/swift-sourcerer
+  // Visualize with https://www.graphviz.org
+
+  edge [ arrowhead=open ];
+  graph [ rankdir=LR ];
+  node [
+    fillcolor=white,
+    fontsize=11,
+    shape=box,
+    style=filled ];
+
+  "TypeName" -> "TypeName" [ color="black" ]
+  "TypeName" -> "DictionaryType" [ color="black" ]
+  "DictionaryType" -> "TypeName" [ color="black" ]
+  "TypeName" -> "ClosureType" [ color="black" ]
+  "ClosureType" -> "TypeName" [ color="black" ]
+  "TypeName" -> "ArrayType" [ color="black" ]
+  "ArrayType" -> "TypeName" [ color="black" ]
+}

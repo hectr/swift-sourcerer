@@ -14,7 +14,15 @@ Sourcerer consists of a series of swift modules that you can import into your ma
 - `SourceryRuntime` is required by the unarchiver to load the archive information.
 - `SourcererTypes` and `SourcererRenderer` contain some helpers and extensions to `SourceryRuntime.Types`. 
 
-To see how it works, take a look at the sample project:
+### Sample project
+
+The sample project is a command-line tool that extracts metrics (not necessarily 100% accurate) from the analyzed sources.
+
+To see what the generated reports look like, check the *Samples* folder. There you can find the result of analyzing Sourcery's source code with `sourcerer`.
+
+- [cycles.jpg](Samples/cycles.jpg)- [rankings.md](Samples/rankings.md)- [stats.md](Samples/stats.md)- [untested.md](Samples/untested.md)
+
+To see how it works, take a look at the sample sources:
 
 ```
 $ git clone https://github.com/hectr/swift-sourcerer.git
