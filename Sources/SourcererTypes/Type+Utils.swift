@@ -71,7 +71,7 @@ public extension Type {
                 guard let attributeId = Attribute.Identifier.from(string: attribute.key) else { continue }
                 switch attributeId {
                 case .mutating: return true
-                case .lazy, .convenience, .required, .available, .discardableResult, .GKInspectable, .objc, .objcMembers, .nonobjc, .NSApplicationMain, .NSCopying, .NSManaged, .UIApplicationMain, .IBOutlet, .IBInspectable, .IBDesignable, .autoclosure, .convention, .escaping, .final, .open, .public, .internal, .private, .fileprivate, .publicSetter, .internalSetter, .privateSetter, .fileprivateSetter: continue
+                case .lazy, .convenience, .required, .available, .discardableResult, .GKInspectable, .objc, .objcMembers, .nonobjc, .NSApplicationMain, .NSCopying, .NSManaged, .UIApplicationMain, .IBOutlet, .IBInspectable, .IBDesignable, .autoclosure, .convention, .escaping, .final, .open, .public, .internal, .private, .fileprivate, .publicSetter, .internalSetter, .privateSetter, .fileprivateSetter, .optional: continue
                 }
             }
         }
