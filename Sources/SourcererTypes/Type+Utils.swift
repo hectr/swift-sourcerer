@@ -25,6 +25,10 @@ public extension Type {
     var nonInstanceMethods: [SourceryMethod] {
         return methods.filter { $0.isStatic || !$0.isClass }
     }
+
+    var methodsWithOptionalReturn: [SourceryMethod] {
+        return methods.filter { $0.actualReturnTypeName.isOptional }
+    }
     
     var hasAccessibleInitializers: Bool {
         guard !AccessLevel.isNonAccessible(rawValue: accessLevel) else { return false }

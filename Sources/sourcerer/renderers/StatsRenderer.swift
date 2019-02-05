@@ -14,6 +14,7 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
 
     public override func render() {
         writeTypesSummary()
+        writeMethodsReport()
         writeTypesReport()
         writeDependenciesReport()
     }
@@ -30,7 +31,19 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
         writer.lines += [" - \(protocols.count) protocols (of which \(delegateProtocols.count) are delegates)"]
         writer.lines += [" - \(externalExtensions.count) *external* dependencies extensions"]
     }
-    
+
+    private func writeMethodsReport() {
+        let optionalReturnMethodsNoThrow = optionalReturnMethods.filter { !$0.throws }
+        let optionalReturnMethodsThrow = optionalReturnMethods.filter { $0.throws }
+        writer.writeTitle("Methods", level: 1)
+        writer.writeLine()
+        writer.writeLine("There are **\(optionalReturnMethodsNoThrow.count) methods that return an optional** value instead of throwing.")
+        writer.writeAsList(optionalReturnMethodsNoThrow.map { "\($0.definedInType != nil ? $0.definedInType!.name + "." : "")\($0.selectorName) -> \($0.returnTypeName.name)" })
+        writer.writeLine()
+        writer.writeLine("There are **\(optionalReturnMethodsThrow.count) methods that can throw and return an optional** value.")
+        writer.writeAsList(optionalReturnMethodsThrow.map { "\($0.definedInType != nil ? $0.definedInType!.name + "." : "")\($0.selectorName) throws -> \($0.returnTypeName.name)" })
+    }
+
     private func writeTypesReport() {
         // instances
         writer.writeTitle("Instances", level: 1)
@@ -82,7 +95,7 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
                      types: viewControllers,
                      label: "view controller subclass")
     }
-    
+
     private func writeDependenciesReport() {
         var instabilities = [Type: Double]()
         for (type, outgoing) in knownDependencies {

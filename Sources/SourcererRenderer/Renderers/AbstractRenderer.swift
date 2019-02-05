@@ -140,7 +140,12 @@ open class AbstractRenderer<W: Writer> {
     open lazy var delegates: [SourceryVariable] = {
         return classInstanceVariables.filter { $0.isDelegate }
     }()
-    
+
+    open lazy var optionalReturnMethods: [SourceryMethod] = {
+        return all.flatMap { $0.methodsWithOptionalReturn }
+    }()
+
+
     open lazy var allDependencies: [Type: Set<String>] = {
         var allDependencies = [Type: Set<String>]()
         for type in all {
