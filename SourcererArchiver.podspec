@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.static_framework = true
 
-  s.source_files = 'Sources/SourcererArchiver/**/*'
+  s.source_files = 'Sources/SourcererArchiver/**/*.swift'
 
   s.dependency 'Idioms'
   s.dependency 'ShellInterface'

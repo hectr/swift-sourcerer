@@ -16,7 +16,7 @@ s.osx.deployment_target = '10.13'
 
 s.static_framework = true
 
-s.source_files = 'Sources/SourcererUnarchiver/**/*'
+s.source_files = 'Sources/SourcererUnarchiver/**/*.swift'
 
 s.dependency 'SourceryRuntime'
 end

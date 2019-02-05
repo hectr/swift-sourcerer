@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = 'SourcererRenderer'
-  s.version     = '0.1.0'
+  s.version     = '0.2.0'
   s.summary     = 'Pure-Swift meta-programming (Renderer)'
 
   s.description = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.static_framework = true
 
-  s.source_files = 'Sources/SourcererRenderer/**/*'
+  s.source_files = 'Sources/SourcererRenderer/**/*.swift'
 
   s.dependency 'SourcererTypes'
 end

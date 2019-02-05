@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.static_framework = true
 
-  s.source_files = 'Vendor/SourceryRuntime/**/*'
+  s.source_files = 'Vendor/SourceryRuntime/**/*.swift'
 
   s.prepare_command = <<-CMD
     ./install_sourcery_runtime.sh

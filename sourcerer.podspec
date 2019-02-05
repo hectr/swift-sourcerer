@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'sourcerer'
-  s.version          = '0.1.1'
+  s.version          = '0.2.0'
   s.summary          = 'Swift source code metrics generator'
   s.description = <<-DESC
   Proof-of-concept pure Swift code-generator that runs on top of [Sourcery](https://github.com/krzysztofzablocki/Sourcery).

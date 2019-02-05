@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = 'SourcererTypes'
-  s.version     = '0.1.1'
+  s.version     = '0.2.0'
   s.summary     = 'Pure-Swift meta-programming (Types extensions)'
 
   s.description = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.static_framework = true
 
-  s.source_files = 'Sources/SourcererTypes/**/*'
+  s.source_files = 'Sources/SourcererTypes/**/*.swift'
 
   s.dependency 'SourceryRuntime'
 end
