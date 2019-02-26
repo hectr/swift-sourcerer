@@ -20,7 +20,10 @@ The sample project is a command-line tool that extracts metrics (not necessarily
 
 To see what the generated reports look like, check the *Samples* folder. There you can find the result of analyzing Sourcery's source code with `sourcerer`.
 
-- [cycles.jpg](Samples/cycles.jpg)- [rankings.md](Samples/rankings.md)- [stats.md](Samples/stats.md)- [untested.md](Samples/untested.md)
+- [cycles.jpg](Samples/cycles.jpg)
+- [rankings.md](Samples/rankings.md)
+- [stats.md](Samples/stats.md)
+- [untested.md](Samples/untested.md)
 
 To see how it works, take a look at the sample sources:
 
@@ -42,11 +45,15 @@ $ gem install cocoapods --pre
 $ pod install
 ```
 
+After that, the `Vendor/SourceryRuntime` folder should contain Sourcery's files required to run the project, if this is not the case, execute the `install_sourcery_runtime.sh` script manually and re-run `pod install`.
+
 ## Usage
 
 Steps to get started using Sourcerer in your own project:
 
 - Create a new macOS project (e.g. *Example*):
+
+- `pod init`
 
 - Set up dependencies (`Podfile`):
 
@@ -59,10 +66,6 @@ target 'Example' do
   pod 'SourceryRuntime', :git => 'https://github.com/hectr/swift-sourcerer.git'
 end
 ```
-
-- Download `SourceryRuntime` sources:
-
-`./install_sourcery_runtime.sh`
 
 - Implement initial code (`main.swift`):
 
@@ -83,6 +86,6 @@ print("- There are \(types.structs.count) structs.")
 print("- There are \(types.classes.count) classes.")
 ```
 
-- When executing this example you need to pass: (1) the path to the Sourcery executable (`--sourcery-path`) and (2) the path to the sources (`--sources`):
+- Execute it with at least these two command line arguments: (1) the path to the Sourcery executable (`--sourcery-path`) and (2) the path to the sources (`--sources`):
 
 `Example --sourcery-path /path/to/sourcery --sources /path/to/sources/`
