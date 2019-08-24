@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.author      = { 'Hèctor Marquès' => 'h@mrhector.me' }
   s.source      = { :git => 'https://github.com/hectr/swift-sourcerer.git', :tag => s.version.to_s }
 
+  s.swift_version         = '5.0'
   s.osx.deployment_target = '10.13'
 
   s.static_framework = true

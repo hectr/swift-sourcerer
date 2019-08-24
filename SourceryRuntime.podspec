@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   s.author      = 'Krzysztof Zabłocki'
   s.source      = { :path => '.' }
 
+  s.swift_version         = '5.0'
   s.osx.deployment_target = '10.13'
 
   s.static_framework = true
