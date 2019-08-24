@@ -1,8 +1,9 @@
 PODS:
-  - ElementaryCycles (0.2.0):
+  - ElementaryCycles (0.4.0):
     - ElementaryCyclesSearch
-  - ElementaryCyclesSearch (0.2.0)
-  - Idioms (0.2.0)
+  - ElementaryCyclesSearch (0.4.0):
+    - Idioms
+  - Idioms (1.5.0)
   - ShellInterface (0.3.0)
   - SourcererArchiver (0.1.0):
     - Idioms
@@ -13,7 +14,7 @@ PODS:
     - SourceryRuntime
   - SourcererUnarchiver (0.1.0):
     - SourceryRuntime
-  - Sourcery (0.15.0)
+  - Sourcery (0.16.2)
   - SourceryRuntime (0.0.1)
 
 DEPENDENCIES:
@@ -46,17 +47,17 @@ EXTERNAL SOURCES:
     :path: "."
 
 SPEC CHECKSUMS:
-  ElementaryCycles: 4b991d9eb88094f7589d7defa107821bccd10b38
-  ElementaryCyclesSearch: e609decff2eb3eef8c2e61b42361de09536e3a37
-  Idioms: 49ed93123f5cf9ecbbfce698b54467b176723adb
+  ElementaryCycles: 1743064ec6bfc064a12a4e1031933a0c56b5b8e1
+  ElementaryCyclesSearch: 86eb598935152104324802bf16d68fa722bddc11
+  Idioms: 1130a2ad5ff050c5dcaad6a749b3b282abb0378d
   ShellInterface: 84aad41857229d6730bb868f2e2d2764bdf1a09a
-  SourcererArchiver: baa91f0b321ccddee255ea3668b7b2464ab644ac
-  SourcererRenderer: 15af3849a68d3688a753dcc28c23774489e176f9
-  SourcererTypes: d61ade3b4c8d27252faa60f21e01e119b5f7d9f0
-  SourcererUnarchiver: 2cba00e491cb055e26df0fb698fa6987562fa25c
-  Sourcery: 5895672cae353cdbfa95f3f4aaeb75a664d76f6a
-  SourceryRuntime: ad8d38480ae6d106369beed550e5b620c0fb4d52
+  SourcererArchiver: 643b9662eeed2c5bd85e18b54b59d572b591bff0
+  SourcererRenderer: 4d9fa0a42e54da9a8a050e47b74a0c98e3347455
+  SourcererTypes: c5b505d54a681d8178468e908aa3cf2493cb9dcd
+  SourcererUnarchiver: 2ee23e529a16b9dd69ee49eeed41cc9a367074e5
+  Sourcery: 3f406d227efd179773b3c3599ebd1700d1a6013c
+  SourceryRuntime: f4cc0fe7357eecee1147bb7f1d5328114d03ea68
 
 PODFILE CHECKSUM: cc067448023e87457a98ab299331cfbb16b989d2
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.7.4
