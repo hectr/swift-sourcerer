@@ -1,6 +1,8 @@
 platform :macos, '10.13'
 
 target 'sourcerer' do
+  # linter
+  pod 'SwiftLint'
   # archive
   pod 'Sourcery'
   pod 'SourcererArchiver', :path => '.'

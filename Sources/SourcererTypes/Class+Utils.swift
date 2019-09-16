@@ -1,8 +1,8 @@
 import Foundation
 import SourceryRuntime
 
-public extension Class {
-    var isTestCase: Bool {
+extension Class {
+    public var isTestCase: Bool {
         let suffixes = ["Specs", "Spec", "Tests", "Test", "TestCases", "TestCase", "Should"]
         let prefixes = ["ST_"]
         for inheritedType in inheritedTypes + [name] {
@@ -20,15 +20,15 @@ public extension Class {
         return false
     }
     
-    var isNSObject: Bool {
+    public var isNSObject: Bool {
         return namesOfBaseTypes.contains("NSObject")
     }
     
-    var isUIView: Bool {
-        return namesOfBaseTypes.filter { $0.hasPrefix("UI") && $0.hasSuffix("View") }.count != 0
+    public var isUIView: Bool {
+        return namesOfBaseTypes.contains { $0.hasPrefix("UI") && $0.hasSuffix("View") }
     }
         
-    var isUIViewController: Bool {
-        return namesOfBaseTypes.filter { $0.hasPrefix("UI") && $0.hasSuffix("Controller") }.count != 0
+    public var isUIViewController: Bool {
+        return namesOfBaseTypes.contains { $0.hasPrefix("UI") && $0.hasSuffix("Controller") }
     }
 }

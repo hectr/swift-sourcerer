@@ -8,11 +8,11 @@ public final class UntestedRenderer: AbstractRenderer<TypesReport> {
         super.init(types: types, writer: TypesReport())
     }
 
-    public override var filename: String {
+    override public var filename: String {
         return "untested.md"
     }
 
-    public override func render() {
+    override public func render() {
         writer.writeTitle("Untested public types")
         writer.writeTitle("Classes", level: 1)
         writer.lines += [""]
@@ -77,7 +77,7 @@ public final class UntestedRenderer: AbstractRenderer<TypesReport> {
     }
 }
 
-private extension Type {
+extension Type {
     var hasPublicAccess: Bool {
         guard let accessLevel = AccessLevel(rawValue: self.accessLevel) else { return false }
         switch accessLevel {

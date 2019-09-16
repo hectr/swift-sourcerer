@@ -10,11 +10,11 @@ public final class RankingsRenderer: AbstractRenderer<TypesReport> {
         super.init(types: types, writer: TypesReport())
     }
 
-    public override var filename: String {
+    override public var filename: String {
         return "rankings.md"
     }
 
-    public override func render() {
+    override public func render() {
         writer.writeTitle("Rankings")
         writeTypesRankings()
         writeMethodsRankings()
@@ -41,26 +41,30 @@ public final class RankingsRenderer: AbstractRenderer<TypesReport> {
         // inheritance degree
         writer.writeCounter(inheritance, label: "- Maximum number of inheritance degrees")
         // subclasses count
-        if let superclassWithMostSubclasses = siblings.sorted(by: { $0.value.count > $1.value.count }).first {
+        if let superclassWithMostSubclasses = siblings.min(by: { $0.value.count > $1.value.count }) {
             writer.writeLine()
-            writer.lines += ["- Maximum number of subclasses:\n`\(superclassWithMostSubclasses.key.name)` (\(superclassWithMostSubclasses.value.count))"]
+            writer.lines += ["- Maximum number of subclasses:\n`\(superclassWithMostSubclasses.key.name)`"
+                + " (\(superclassWithMostSubclasses.value.count))"]
         }
         // nested types
-        if let parentWithMostTypes = all.sorted(by: { $0.containedTypes.count > $1.containedTypes.count }).first {
+        if let parentWithMostTypes = all.min(by: { $0.containedTypes.count > $1.containedTypes.count }) {
             writer.writeLine()
             writer.lines += ["- Maximum number of nested types:\n`\(parentWithMostTypes.name)` (\(parentWithMostTypes.containedTypes.count))"]
         }
         // nested types
-        if let typeWithLongestName = all.sorted(by: { $0.localName.count > $1.localName.count }).first {
+        if let typeWithLongestName = all.min(by: { $0.localName.count > $1.localName.count }) {
             writer.writeLine()
             writer.lines += ["- Longest name:\n`\(typeWithLongestName.name)` (\(typeWithLongestName.localName.count))"]
         }
         // enums
         writer.writeTitle("Enums", level: 2)
-        if let enumWithMostCases = self.enums.map({ TypeCounter(type: $0, counting: $0.cases) }).sorted(by:{ $0.count > $1.count }).first {
+        if let enumWithMostCases = self.enums.map({ TypeCounter(type: $0, counting: $0.cases) }).min(by:{ $0.count > $1.count }) {
             writer.writeCounter(enumWithMostCases, label: "- Maximum number of cases in enum")
         }
-        if let enumWithCaseWithMostAssociated = self.enums.map({ TypeCounter(type: $0, count: $0.cases.reduce(Int.min) { $1.associatedValues.count > $0 ? $1.associatedValues.count : $0 }) }).sorted(by:{ $0.count > $1.count }).first {
+        if let enumWithCaseWithMostAssociated = self
+            .enums
+            .map({ TypeCounter(type: $0, count: $0.cases.reduce(Int.min) { $1.associatedValues.count > $0 ? $1.associatedValues.count : $0 }) })
+            .min(by:{ $0.count > $1.count }) {
             writer.writeCounter(enumWithCaseWithMostAssociated, label: "- Maximum number of associated values in a case")
         }
     }
@@ -138,19 +142,18 @@ public final class RankingsRenderer: AbstractRenderer<TypesReport> {
     private func writeDependenciesRankings() {
         writer.writeTitle("Declared dependencies", level: 1)
         writer.writeTitle("Efferent coupling", level: 2)
-        if let efferent = allDependencies.map({ TypeCounter(type: $0.key, counting: Array($0.value)) }).sorted(by: { $0.count > $1.count }).first {
+        if let efferent = allDependencies.map({ TypeCounter(type: $0.key, counting: Array($0.value)) }).min(by: { $0.count > $1.count }) {
             writer.writeCounter(efferent, label: "- Maximum number of outgoing dependencies")
         }
-        if let unknown = unknownDependencies.map({ TypeCounter(type: $0.key, counting: Array($0.value)) }).sorted(by: { $0.count > $1.count }).first {
+        if let unknown = unknownDependencies.map({ TypeCounter(type: $0.key, counting: Array($0.value)) }).min(by: { $0.count > $1.count }) {
             writer.writeCounter(unknown, label: "- Maximum number of *external* outgoing dependencies")
         }
-        if let known = knownDependencies.map({ TypeCounter(type: $0.key, counting: Array($0.value)) }).sorted(by: { $0.count > $1.count }).first {
+        if let known = knownDependencies.map({ TypeCounter(type: $0.key, counting: Array($0.value)) }).min(by: { $0.count > $1.count }) {
             writer.writeCounter(known, label: "- Maximum number of *internal* outgoing dependencies")
         }
         writer.writeTitle("Afferent coupling", level: 2)
-        if let afferent = incomingDependencies.map({ TypeCounter(type: $0.key, counting: Array($0.value)) }).sorted(by: { $0.count > $1.count }).first {
+        if let afferent = incomingDependencies.map({ TypeCounter(type: $0.key, counting: Array($0.value)) }).min(by: { $0.count > $1.count }) {
             writer.writeCounter(afferent, label: "- Maximum number of incoming dependencies")
-            
         }
     }
 }

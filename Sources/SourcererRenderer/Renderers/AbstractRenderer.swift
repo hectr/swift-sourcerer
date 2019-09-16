@@ -7,6 +7,7 @@ open class AbstractRenderer<W: Writer> {
         return String(describing: type(of: self)).appending(".swift")
     }
 
+    // swiftlint:disable:next unavailable_function
     open func render() {
         fatalError("Subclasses must override \(#function)")
     }
@@ -144,7 +145,6 @@ open class AbstractRenderer<W: Writer> {
     open lazy var optionalReturnMethods: [SourceryMethod] = {
         return all.flatMap { $0.methodsWithOptionalReturn }
     }()
-
 
     open lazy var allDependencies: [Type: Set<String>] = {
         var allDependencies = [Type: Set<String>]()

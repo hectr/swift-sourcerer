@@ -1,51 +1,51 @@
 import Foundation
 import SourceryRuntime
 
-public extension Type {
-    var allInstanceVariables: [SourceryVariable] {
+extension Type {
+    public var allInstanceVariables: [SourceryVariable] {
         return allVariables.filter { !$0.isStatic }
     }
     
-    var allStaticVariables: [SourceryVariable] {
+    public var allStaticVariables: [SourceryVariable] {
         return allVariables.filter { $0.isStatic }
     }
     
-    var allInstanceMethods: [SourceryMethod] {
+    public var allInstanceMethods: [SourceryMethod] {
         return allMethods.filter { !$0.isStatic && !$0.isClass }
     }
     
-    var allNonInstanceMethods: [SourceryMethod] {
+    public var allNonInstanceMethods: [SourceryMethod] {
         return allMethods.filter { $0.isStatic || !$0.isClass }
     }
     
-    var allInitializers: [SourceryMethod] {
+    public var allInitializers: [SourceryMethod] {
         return allMethods.filter { $0.isInitializer }
     }
     
-    var nonInstanceMethods: [SourceryMethod] {
+    public var nonInstanceMethods: [SourceryMethod] {
         return methods.filter { $0.isStatic || !$0.isClass }
     }
 
-    var methodsWithOptionalReturn: [SourceryMethod] {
+    public var methodsWithOptionalReturn: [SourceryMethod] {
         return methods.filter { $0.actualReturnTypeName.isOptional }
     }
     
-    var hasAccessibleInitializers: Bool {
+    public var hasAccessibleInitializers: Bool {
         guard !AccessLevel.isNonAccessible(rawValue: accessLevel) else { return false }
         if allInitializers.isEmpty {
             return self is Class || self is Struct
         }
-        return !allInitializers.filter { AccessLevel.isAccessible(rawValue: $0.accessLevel) }.isEmpty
+        return !allInitializers.contains { AccessLevel.isAccessible(rawValue: $0.accessLevel) }
     }
     
-    var isSingleton: Bool {
+    public var isSingleton: Bool {
         guard self is Class || self is Struct else { return false }
         guard !hasAccessibleInitializers else { return false }
         guard staticInstances == 1 else { return false }
         return true
     }
     
-    var staticInstances: Int {
+    public var staticInstances: Int {
         let accessibleStaticGetters = allStaticVariables.filter { staticVariable in
             guard let variableType = staticVariable.type else { return false }
             guard variableType == self else { return false }
@@ -57,7 +57,7 @@ public extension Type {
         return accessibleStaticGetters.count
     }
     
-    var isExposingMutableInstanceVars: Bool {
+    public var isExposingMutableInstanceVars: Bool {
         for variable in allInstanceVariables where variable.isMutable{
             if AccessLevel.isAccessible(rawValue: variable.writeAccess) {
                 return true
@@ -66,7 +66,7 @@ public extension Type {
         return false
     }
     
-    var isMutable: Bool {
+    public var isMutable: Bool {
         for variable in allInstanceVariables where variable.isMutable {
             return true
         }
@@ -75,28 +75,34 @@ public extension Type {
                 guard let attributeId = Attribute.Identifier.from(string: attribute.key) else { continue }
                 switch attributeId {
                 case .mutating: return true
-                case .lazy, .convenience, .required, .available, .discardableResult, .GKInspectable, .objc, .objcMembers, .nonobjc, .NSApplicationMain, .NSCopying, .NSManaged, .UIApplicationMain, .IBOutlet, .IBInspectable, .IBDesignable, .autoclosure, .convention, .escaping, .final, .open, .public, .internal, .private, .fileprivate, .publicSetter, .internalSetter, .privateSetter, .fileprivateSetter, .optional: continue
+                case .lazy, .convenience, .required, .available, .discardableResult,
+                     .GKInspectable, .objc, .objcMembers, .nonobjc, .NSApplicationMain,
+                     .NSCopying, .NSManaged, .UIApplicationMain, .IBOutlet, .IBInspectable,
+                     .IBDesignable, .autoclosure, .convention, .escaping, .final,
+                     .open, .public, .internal, .private, .fileprivate, .publicSetter,
+                     .internalSetter, .privateSetter, .fileprivateSetter, .optional:
+                    continue
                 }
             }
         }
         return false
     }
     
-    var isNested: Bool {
+    public var isNested: Bool {
         return parentName != nil
     }
     
-    var nestingLevel: Int {
+    public var nestingLevel: Int {
         guard let parent = parent else { return 0 }
         return 1 + parent.nestingLevel
     }
     
-    var inheritanceLevel: Int {
+    public var inheritanceLevel: Int {
         guard let parent = supertype else { return 0 }
         return 1 + parent.inheritanceLevel
     }
     
-    var isDataOnly: Bool {
+    public var isDataOnly: Bool {
         guard self is Class || self is Struct else { return false }
         for method in allMethods {
             guard method.returnType != self else { continue }
@@ -106,12 +112,12 @@ public extension Type {
         return true
     }
     
-    var isStateLess: Bool {
+    public var isStateLess: Bool {
         guard self is Class || self is Struct else { return false }
         return allInstanceVariables.isEmpty
     }
     
-    var isStatic: Bool {
+    public var isStatic: Bool {
         guard self is Class || self is Struct else { return false }
         return isExtension == false &&
             allInstanceMethods.isEmpty &&
@@ -119,7 +125,7 @@ public extension Type {
             allInitializers.isEmpty
     }
     
-    var namesOfBaseTypes: Set<String> {
+    public var namesOfBaseTypes: Set<String> {
         var names = Set<String>()
         if let supertype = supertype {
             supertype.namesOfBaseTypes.forEach { names.insert($0) }
@@ -133,7 +139,7 @@ public extension Type {
         return names
     }
     
-    static func allDependencies(_ type: Type, allTypes: [Types] = []) -> Set<String> {
+    public static func allDependencies(_ type: Type, allTypes: [Types] = []) -> Set<String> {
         var ignoring = [Type]()
         let dependencies = allDependencies(type, ignoring: &ignoring)
         var names = Set<String>()
@@ -145,7 +151,7 @@ public extension Type {
         return names
     }
     
-    static func allDependencies(_ type: Type, ignoring: inout [Type]) -> Set<TypeName> {
+    public static func allDependencies(_ type: Type, ignoring: inout [Type]) -> Set<TypeName> {
         guard !ignoring.contains(type) else { return Set<TypeName>() }
         ignoring += [type]
         var dependencies = [TypeName]()
@@ -182,12 +188,12 @@ public extension Type {
         return Set(dependencies)
     }
     
-    static func unknownDependencies(_ type: Type, allKnownTypes: [Type]) -> Set<String> {
+    public static func unknownDependencies(_ type: Type, allKnownTypes: [Type]) -> Set<String> {
         let known = knownDependencies(type, allKnownTypes: allKnownTypes)
         return allDependencies(type).filter { !known.contains($0) }
     }
     
-    static func knownDependencies(_ type: Type, allKnownTypes: [Type]) -> Set<String> {
+    public static func knownDependencies(_ type: Type, allKnownTypes: [Type]) -> Set<String> {
         var ignoring = [Type]()
         let types = knownDependencies(type, ignoring: &ignoring, allKnownTypes: allKnownTypes)
         var names = Set<String>()
@@ -197,7 +203,7 @@ public extension Type {
         return names
     }
     
-    static func knownDependencies(_ type: Type, ignoring: inout [Type], allKnownTypes: [Type]) -> Set<Type> {
+    public static func knownDependencies(_ type: Type, ignoring: inout [Type], allKnownTypes: [Type]) -> Set<Type> {
         guard !ignoring.contains(type) else { return Set<Type>() }
         ignoring += [type]
         var types = [Type]()

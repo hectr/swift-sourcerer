@@ -8,11 +8,11 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
         super.init(types: types, writer: TypesReport())
     }
 
-    public override var filename: String {
+    override public var filename: String {
         return "stats.md"
     }
 
-    public override func render() {
+    override public func render() {
         writeTypesSummary()
         writeMethodsReport()
         writeTypesReport()
@@ -38,14 +38,23 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
         writer.writeTitle("Methods", level: 1)
         writer.writeLine()
         writer.writeLine("There are **\(optionalReturnMethodsNoThrow.count) methods that return an optional** value instead of throwing.")
+        // swiftlint:disable:next force_unwrapping line_length
         writer.writeAsList(optionalReturnMethodsNoThrow.map { "\($0.definedInType != nil ? $0.definedInType!.name + "." : "")\($0.selectorName) -> \($0.returnTypeName.name)" })
         writer.writeLine()
         writer.writeLine("There are **\(optionalReturnMethodsThrow.count) methods that can throw and return an optional** value.")
+        // swiftlint:disable:next force_unwrapping line_length
         writer.writeAsList(optionalReturnMethodsThrow.map { "\($0.definedInType != nil ? $0.definedInType!.name + "." : "")\($0.selectorName) throws -> \($0.returnTypeName.name)" })
     }
 
     private func writeTypesReport() {
-        // instances
+        writeInstancesReport(writer)
+        writeDataReport(writer)
+        writeNestedReport(writer)
+        writeGenericsReport(writer)
+        writeNSObjectReport(writer)
+    }
+
+    private func writeInstancesReport(_ writer: TypesReport) {
         writer.writeTitle("Instances", level: 1)
         writer.write(types: singletons,
                      label: "singleton",
@@ -59,7 +68,9 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
                      label: "static",
                      subset: instantiableStaticTypes,
                      subsetLabel: "instantiable")
-        // data
+    }
+
+    private func writeDataReport(_ writer: TypesReport) {
         writer.writeTitle("Data", level: 1)
         writer.write(types: mutable,
                      label: "mutable",
@@ -68,7 +79,9 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
                      label: "state-less")
         writer.write(types: dataTypes,
                      label: "data-only")
-        // nested
+    }
+
+    private func writeNestedReport(_ writer: TypesReport) {
         writer.write(title: "Nesting",
                      types: nested,
                      label: "nested",
@@ -76,11 +89,15 @@ public final class StatsRenderer: AbstractRenderer<TypesReport> {
                      sortCriteria: {
                         $0.nestingLevel*(AccessLevel.isNonAccessible(rawValue: $0.accessLevel) ? 1 : 3)
                      })
-        // generics
+    }
+
+    private func writeGenericsReport(_ writer: TypesReport) {
         writer.write(title: "Generics",
                      types: generics,
                      label: "generic")
-        // NSObject
+    }
+
+    private func writeNSObjectReport(_ writer: TypesReport) {
         writer.writeTitle("Objective-C", level: 1)
         writer.write(title: "NSObject",
                      titleLevel: 2,

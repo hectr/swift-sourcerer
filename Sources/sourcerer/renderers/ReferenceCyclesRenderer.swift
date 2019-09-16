@@ -6,11 +6,11 @@ import ElementaryCycles
 import Idioms
 
 final class ReferenceCyclesRenderer: AbstractRenderer<GraphViz> {
-    public init(types: Types) {
+    init(types: Types) {
         super.init(types: types, writer: GraphViz())
     }
 
-    public override var filename: String {
+    override var filename: String {
         return "cycles.dot"
     }
 

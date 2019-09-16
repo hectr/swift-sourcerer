@@ -10,7 +10,7 @@ open class Markdown: Writer {
         writeLine("\(String(repeating: "#", count: level + 1)) \(title)")
     }
     
-    open func writeAsList(_ array: Array<String>,
+    open func writeAsList(_ array: [String],
                           bullet: String = "-",
                           level: Int = 0,
                           maxCount: Int = 8) {

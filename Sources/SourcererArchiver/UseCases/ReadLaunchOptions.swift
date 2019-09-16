@@ -19,6 +19,7 @@ public struct ReadLaunchOptions
     {
         var options = LaunchOptions()
 
+        // swiftlint:disable:next cyclomatic_complexity
         func handleArgument(option: ArgumentOption, value: String) {
             let path = pathByReplacingTilde(value)
             let boolean = value == "false" ? false : true
@@ -63,7 +64,7 @@ public struct ReadLaunchOptions
 
     private func checkValueIsPaired(arguments: [String], value: String, previousIndex: Int?) throws {
         guard let previousIndex = previousIndex else { return }
-        guard let _ = ArgumentOption(rawValue: arguments[previousIndex]) else {
+        guard ArgumentOption(rawValue: arguments[previousIndex]) != nil else {
             throw Error.unpairedArgument(value: value)
         }
         return

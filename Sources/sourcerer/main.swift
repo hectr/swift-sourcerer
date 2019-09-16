@@ -52,7 +52,8 @@ guard launchOptions != nil || CommandLine.arguments.count >= 2 else {
     --sourcery-path - Path to the sourcery executable.
     --output - Path to the output directory.
     Sourcery options:
-    --sources, --watch, --disableCache, --verbose, --quiet, --prune, --exclude-sources, --templates, --exclude-templates, --config, --force-parse, --args, --ejsPath
+    --sources, --watch, --disableCache, --verbose, --quiet, --prune, --exclude-sources, \
+    --templates, --exclude-templates, --config, --force-parse, --args, --ejsPath
     """
     print(usage)
     exit(1)

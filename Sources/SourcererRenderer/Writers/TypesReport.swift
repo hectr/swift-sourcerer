@@ -3,8 +3,8 @@ import SourceryRuntime
 
 open class TypesReport: Markdown {
     public struct TypeCounter {
-        public var type: Type? = nil
-        public var count: Int = Int.min
+        public var type: Type?
+        public var count: Int = .min
         
         public init() { }
         
@@ -13,7 +13,7 @@ open class TypesReport: Markdown {
             self.count = count
         }
         
-        public init(type: Type?, counting: Array<Any>) {
+        public init(type: Type?, counting: [Any]) {
             self.type = type
             self.count = counting.count
         }
@@ -42,7 +42,12 @@ open class TypesReport: Markdown {
             writeTitle(title, level: titleLevel)
         }
         if disclosePrivate {
-            writeCount(of: types, label: label, subset: types.filter { AccessLevel.isNonAccessible(rawValue: $0.accessLevel) }, subsetLabel: "private")
+            writeCount(of: types,
+                       label: label,
+                       subset: types.filter {
+                        AccessLevel.isNonAccessible(rawValue: $0.accessLevel)
+                       },
+                       subsetLabel: "private")
         } else {
             writeLine()
             writeLine("There are **\(types.count) \(label)** types.")
@@ -71,7 +76,12 @@ open class TypesReport: Markdown {
                          label: String,
                          disclosePrivate: Bool = false) {
         if disclosePrivate {
-            writeCount(of: types, label: label, subset: types.filter { AccessLevel.isNonAccessible(rawValue: $0.accessLevel) }, subsetLabel: "private")
+            writeCount(of: types,
+                       label: label,
+                       subset: types.filter {
+                        AccessLevel.isNonAccessible(rawValue: $0.accessLevel)
+                       },
+                       subsetLabel: "private")
         } else {
             writeLine()
             writeLine("There are **\(types.count) \(label)** types.")
@@ -99,6 +109,9 @@ open class TypesReport: Markdown {
                           level: Int = 0,
                           maxCount: Int = 8,
                           sortCriteria: (TypeCounter) -> Int = { $0.count }) {
-        return writeAsList(counters.sorted { sortCriteria($0) > sortCriteria($1) }.compactMap { $0.type?.name }, bullet: bullet, level: level, maxCount: maxCount)
+        return writeAsList(counters.sorted { sortCriteria($0) > sortCriteria($1) }.compactMap { $0.type?.name },
+                           bullet: bullet,
+                           level: level,
+                           maxCount: maxCount)
     }
 }
